@@ -127,15 +127,28 @@
                 </annotationProcessorPaths>
             </configuration>
             </plugin>
-            <plugin>
+           <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>2.4.1</version>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>Deleting all files under target, but not target itself</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <followSymLinks>false</followSymLinks>
+                    <excludeDefaultDirectories>true</excludeDefaultDirectories>
                     <filesets>
                         <fileset>
-                            <directory>${basedir}/target</directory>
+                            <directory>target/</directory>
+                            <followSymlinks>false</followSymlinks>
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
                         </fileset>
                     </filesets>
                 </configuration>
