@@ -40,7 +40,7 @@ public class CommonUtils {
         JSONParser jsonParser = new JSONParser();
         try {
             FileReader reader = new FileReader("src/test/resources/testdata/backenddata.json");
-            JSONObject testdata = (JSONObject) jsonParser.parse(reader);
+            org.json.simple.JSONObject testdata = (org.json.simple.JSONObject) jsonParser.parse(reader);
             data.setBasURL(String.valueOf(testdata.get(key)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -16,7 +16,7 @@ import org.testng.Reporter;
 public class RetrieveEndpoint {
     backenddata data = new backenddata();
 
-    protected final String base_url = data.getBaseURL();
+    protected static String base_url;
 
     public static final String GET_REQUEST_BASE_PATH = "/posts";
     public static final String InVALId_GET_REQUEST_BASE_PATH = "/post";
@@ -46,6 +46,7 @@ public class RetrieveEndpoint {
     }
 
     public String getBaseUrl() {
+        base_url = data.getBaseURL();
         return this.base_url;
     }
 
