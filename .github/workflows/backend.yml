@@ -21,7 +21,13 @@ jobs:
       with:
         java-version: 1.8
     - name: Execute Tests
-      run: mvn -U clean install test -DsuiteXmlFile=testng.xml
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      run: |
+        echo ::set-env name=JDK_16::$(echo $JAVA_HOME)
+        mvn --batch-mode --update-snapshots package
+        mvn -b package --file pom.xml
+        mvn -U clean install test -DsuiteXmlFile=testng.xml
     - name: Upload a Test Results
       uses: actions/upload-artifact@v2.2.2
       with:
