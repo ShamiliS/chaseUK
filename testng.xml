@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Testing GET Backend API">
+    <test name="Smoke Backend API Test">
+        <classes>
+            <class name="com.chaseUK.backend_Demo.runner.testRunner"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
