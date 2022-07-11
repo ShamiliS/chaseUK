@@ -12,6 +12,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        maven: [ '3.8.5' ]
 
     steps:
     - uses: actions/checkout@v2
@@ -19,6 +23,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+        maven-version: ${{ matrix.maven }}
     - name: Execute Tests
       run: mvn clean test -DsuiteXmlFile=testng.xml
     - name: Upload a Test Results
